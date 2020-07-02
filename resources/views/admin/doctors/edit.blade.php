@@ -20,30 +20,30 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form method = "post" action = "{{ route('admin.doctors.update', $doctors->id) }}" enctype = "multipart/form-data">
+            <form method = "post" action = "{{route('admin.doctors.update', $doctors->id?? '')}}" enctype = "multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class = "form-group">
                     <div class = "row">
-                        <label class = "col-md-4">Full Name</label>
+                        <label class = "col-md-4" for ="name">Full Name</label>
                         <div class = "col-md-7"><input type = "text" name = "full_name" class = "form-control"
-                                                       value = "{{$doctors->full_name}}" ></div>
+                                                       value = "{{$doctors->full_name?? ''}}" id = "name"></div>
 
-                        <label class = "col-md-4">Position</label>
+                        <label class = "col-md-4" for = "position">Position</label>
                         <div class = "col-md-7"><input type = "text" name = "position" class = "form-control"
-                                                       value = "{{$doctors->position}}"></div>
+                                                       value = "{{$doctors->position?? ''}}" id = "position"></div>
 
-                        <label class = "col-md-4">Email</label>
+                        <label class = "col-md-4" for = "email">Email</label>
                         <div class = "col-md-7"><input type = "text" name = "email" class = "form-control"
-                                                       value = "{{$doctors->email}}"></div>
+                                                       value = "{{$doctors->email?? ''}}" id = "email"></div>
 
-                        <label class = "col-md-4">Phone number</label>
+                        <label class = "col-md-4" for = "phone">Phone number</label>
                         <div class = "col-md-7"><input type = "text" name = "phone_number" class = "form-control"
-                                                       value = "{{$doctors->phone_number}}"></div>
+                                                       value = "{{$doctors->phone_number?? ''}}" id = "phone"></div>
 
-                        <label class = "col-md-4">Image</label>
+                        <label class = "col-md-4" for = "image">Image</label>
                         <div class = "col-md-7"><input type = "file" name = "image" class = "btn btn-info"
-                                                       value = "{{$doctors->image}}"></div>
+                                                       value = "{{$doctors->image?? ''}}" id = "image"></div>
                         <div class = "clearfix"></div>
                     </div>
                 </div>
