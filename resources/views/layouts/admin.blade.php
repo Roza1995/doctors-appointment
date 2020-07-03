@@ -26,99 +26,99 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @yield('links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('home')}}" class="nav-link">Home</a>
-      </li>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('home')}}" class="nav-link">Home</a>
+        </li>
     </ul>
+</nav>
 
 
 
 
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-5">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-5">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text font-weight-light-5">Booking appointment</span>
+        <span class="brand-text font-weight-light-5">Booking appointment</span>
     </a>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <?php
-			$segment = Request::segment(2);
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <?php
+            $segment = Request::segment(2);
 
-		  ?>
-		  <li class="nav-item has-treeview menu-open">
-            <a href="{{route('home')}}" class="nav-link
+            ?>
+            <li class="nav-item has-treeview menu-open">
+                <a href="{{route('home')}}" class="nav-link
 			@if(!$segment)
-			active
-			@endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
+                    active
+            @endif">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dashboard
+                    </p>
+                </a>
 
-          </li>
-          <li class="nav-item">
-            <a href="{{route('admin.doctors.index')}}" class="nav-link
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.doctors.index')}}" class="nav-link
 			@if($segment == 'doctors')
-			active
-			@endif">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-               Doctors
+                    active
+            @endif">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Doctors
 
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('admin.patient.index')}}" class="nav-link
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.patient.index')}}" class="nav-link
 			@if($segment == 'patient')
-			active
-			@endif">
-               <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Patient
+                    active
+            @endif">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Patient
 
-                <span class="badge badge-info right"></span>
-              </p>
-            </a>
+                        <span class="badge badge-info right"></span>
+                    </p>
+                </a>
 
 
-          <li class="nav-header">ACTION</li>
-          <li class="nav-item">
-			  <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+            <li class="nav-header">ACTION</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-													 <i class="nav-icon far fa-circle text-danger"></i>
-                                        {{ __('Logout') }}
-                                    </a>
+                    <i class="nav-icon far fa-circle text-danger"></i>
+                    {{ __('Logout') }}
+                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-            </a>
-          </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                </a>
+            </li>
 
         </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+    </nav>
+    <!-- /.sidebar-menu -->
     <!-- /.sidebar -->
   </aside>
   <div class = "content-wrapper">
@@ -135,11 +135,8 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
 
-<!-- jQuery -->
+
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -173,5 +170,9 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+@yield('content_script')
+
+@yield('scripts')
 </body>
 </html>

@@ -243,7 +243,7 @@
 
             $(function() {
                 $('#calendar').fullCalendar({
-                    height: 800,
+                    height: 600,
                     header: {
                         left: 'month,agendaWeek,agendaDay custom1',
                         center: 'title',
