@@ -48,7 +48,7 @@
                             <a href = "javascript:void(0)" onclick = "$(this).parent().find('form').submit()" class = "btn btn-danger">Delete</a>
                             <form method = "post" action = "{{route('admin.doctors.destroy', $d->id)}}">
                                 @method('DELETE')
-                                <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+                                @csrf
                             </form>
 
                         </td>
